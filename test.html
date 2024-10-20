@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Score Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Random Score Game</h1>
+    <input type="text" id="username" placeholder="Enter your username">
+    <button onclick="playGame()">Play</button>
+
+    <div id="result"></div>
+
+    <script>
+        function playGame() {
+            const username = document.getElementById("username").value;
+            const gameName = "Random Score Game";
+
+            // Generate a random score between 0 and 100
+            const score = Math.floor(Math.random() * 101); 
+
+            // Store the game data in an object
+            const gameData = {
+                username: username,
+                score: score,
+                gameName: gameName
+            };
+
+            // Display the results
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `
+                Game Name: ${gameData.gameName}<br>
+                Username: ${gameData.username}<br>
+                Score: ${gameData.score}
+            `;
+        }
+    </script>
+
+</body>
+</html>
